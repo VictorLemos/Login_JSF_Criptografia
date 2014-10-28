@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head/>
+		<h:body>
+			<h:form id="frmLogin">
+				<p:growl autoUpdate="true"/>
+				<p:fieldset legend="Login">
+					<p:panelGrid columns="2" >
+						<p:outputLabel  value="Usuário" for="usuario" />
+						<p:inputText id="usuario" value="#{loginBean.login.usuario}"  required="#{LoginBean.login.usuario == null}" requiredMessage="Campo em branco digite o Usuário!">
+							<f:validateLength  minimum="2" maximum="7"/>
+						</p:inputText>
+						<p:outputLabel  value="Senha" for="senha" />
+						<p:password id="senha" value="#{loginBean.login.senha}"  required="#{loginBean.login.senha == null}" requiredMessage="Campo em branco digite a senha!">
+							<f:validateLength  minimum="3" maximum="8"/>
+						</p:password >
+							<f:facet name="footer">
+								<h:commandButton value="Logar" actionListener="#{loginBean.logar}"  />
+							</f:facet>			
+					</p:panelGrid>
+				</p:fieldset>	
+			</h:form>
+		</h:body>
+</html>
